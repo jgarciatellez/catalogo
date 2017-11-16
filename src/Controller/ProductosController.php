@@ -4,33 +4,35 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-class TiposController extends AppController{
+class ProductosController extends AppController{
 
     public $paginate = ['maxLimit'=> 5];
     
     public function index(){
-        $tipos = $this->paginate($this->Tipos);
-        $this->set(compact('tipos'));
+        $this->paginate = ['contain'=>['Tipos']];
+        $productos = $this->paginate($this->Productos);
+        $this->set(compact('productos'));
         
     }
     
     public function add(){
         
-        $tipo = $this->Tipos->newEntity();
+        $producto = $this->Productos->newEntity();
         
         if ($this->request->is('post')){
             
-            $tipo=$this->Tipos->patchEntity($tipo,$this->request->getData());
-            if ($this->Tipos->save($tipo)){
+            $producto=$this->Productos->patchEntity($producto,$this->request->getData());
+            if ($this->Productos->save($producto)){
                 
-                $this->Flash->success('Tipo guardado correctamente.');
+                $this->Flash->success('Producto guardado correctamente.');
                 return $this->redirect(['action'=>'index']);
                 
             }
-            $this->Flash->error('Error al guardar el tipo');
+            $this->Flash->error('Error al guardar el producto');
             
         }
-        $this->set(compact('tipo'));
+        $tipos=$this->Productos->Tipos->find('list');
+        $this->set(compact('producto','tipos'));
     }
     
     public function edit($id=null){
