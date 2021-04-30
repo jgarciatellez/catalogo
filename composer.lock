@@ -55,7 +55,7 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.5.5",
+            "version": "3.5.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
@@ -1230,7 +1230,7 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.5.2",
+            "version": "1.10.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
