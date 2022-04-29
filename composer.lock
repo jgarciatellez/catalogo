@@ -54,7 +54,7 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "3.5.18",
+            "version": "4.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
